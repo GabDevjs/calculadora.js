@@ -2,7 +2,7 @@
  
   ## about
 
-    In this project I made with javascript a very simple but functional calculator.
+  In this project I made with javascript a very simple but functional calculator.
 
 
   <div align="center">
