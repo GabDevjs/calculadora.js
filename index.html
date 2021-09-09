@@ -12,35 +12,35 @@
     <div class="conteiner">
         <div class="calculadora">
             <h2>Calculadora</h2>
-            <p id="resultado"></p>
+            <input type="text" id="field1" readonly value='0'></input>
             <table >
                 <tr>
-                    <td><button class="btn-blue" onclick="clearP()">C</button></td>
-                    <td><button onclick="back()"><</button></td>
-                    <td><button onclick="insert('/')">%</button></td>
-                    <td><button onclick="insert('*')">x</button></td>
+                    <td><button onclick='cleartxt()' id='C'>C</button></td>
+                    <td><button onclick='removeLastNumber()' id='removeLast'><</button></td>
+                    <td><button onclick='setOperator(this)' id='divide'>%</button></td>
+                    <td><button onclick='setOperator(this)' id='multi'>*</button></td>
                 </tr>
                 <tr>
-                    <td><button onclick="insert('7')">7</button></td>
-                    <td><button onclick="insert('8')">8</button></td>
-                    <td><button onclick="insert('9')">9</button></td>
-                    <td><button onclick="insert('-')">-</button></td>
+                    <td><button onclick='writeNumber(this)' id='n7'>7</button></td>
+                    <td><button onclick='writeNumber(this)' id='n8'>8</button></td>
+                    <td><button onclick='writeNumber(this)' id='n9'>9</button></td>
+                    <td><button onclick='setOperator(this)' id='sustract'>-</button></td>
                 </tr>
                 <tr>
-                    <td><button onclick="insert('4')">4</button></td>
-                    <td><button onclick="insert('5')">5</button></td>
-                    <td><button onclick="insert('6')">6</button></td>
-                    <td><button onclick="insert('+')">+</button></td>
+                    <td><button onclick='writeNumber(this)' id='n4'>4</button></td>
+                    <td><button onclick='writeNumber(this)' id='n5'>5</button></td>
+                    <td><button onclick='writeNumber(this)' id='n6'>6</button></td>
+                    <td><button onclick='setOperator(this)' id='sum'>+</button></td>
                 </tr>
                 <tr>
-                    <td><button onclick="insert('1')">1</button></td>
-                    <td><button onclick="insert('2')">2</button></td>
-                    <td><button onclick="insert('3')">3</button></td>
-                    <td rowspan="2" ><button class="btn-blue" style="height: 106px;" onclick="calcular()">=</button></td>
+                    <td><button onclick='writeNumber(this)' id='n1'>1</button></td>
+                    <td><button onclick='writeNumber(this)' id='n2'>2</button></td>
+                    <td><button onclick='writeNumber(this)' id='n3'>3</button></td>
+                    <td rowspan="2" ><button onclick='calculate()' id='calcular' style='height:106px'>=</button></td>
                 </tr>
                 <tr>
-                    <td colspan="2" ><button style="width: 106px;" onclick="insert('0')">0</button></td>
-                    <td><button onclick="insert('.')">.</button></td>
+                    <td colspan="2" ><button onclick='setDecimal(this,true)'style='width:106px' id='dec'>0</button></td>
+                    <td><button onclick='setDecimal(this,true)' id='dec'>.</button></td>
                 </tr>
             </table>
         </div>
