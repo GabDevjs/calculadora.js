@@ -1,52 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awsom -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Constum css -->
+    <link rel="icon " href="assets/img/calculator.svg" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Calculadora</title>
-    <link rel="icon " href="assets/img/calculator.svg">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <div class="conteiner">
-        <div class="calculadora">
-            <h2>Calculadora</h2>
-            <input type="text" id="field1" readonly value='0'></input>
-            <table >
-                <tr>
-                    <td><button onclick='cleartxt()' id='C'>C</button></td>
-                    <td><button onclick='removeLastNumber()' id='removeLast'><</button></td>
-                    <td><button onclick='setOperator(this)' id='divide'>%</button></td>
-                    <td><button onclick='setOperator(this)' id='multi'>*</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick='writeNumber(this)' id='n7'>7</button></td>
-                    <td><button onclick='writeNumber(this)' id='n8'>8</button></td>
-                    <td><button onclick='writeNumber(this)' id='n9'>9</button></td>
-                    <td><button onclick='setOperator(this)' id='sustract'>-</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick='writeNumber(this)' id='n4'>4</button></td>
-                    <td><button onclick='writeNumber(this)' id='n5'>5</button></td>
-                    <td><button onclick='writeNumber(this)' id='n6'>6</button></td>
-                    <td><button onclick='setOperator(this)' id='sum'>+</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick='writeNumber(this)' id='n1'>1</button></td>
-                    <td><button onclick='writeNumber(this)' id='n2'>2</button></td>
-                    <td><button onclick='writeNumber(this)' id='n3'>3</button></td>
-                    <td rowspan="2" ><button onclick='calculate()' id='calcular' style='height:106px'>=</button></td>
-                </tr>
-                <tr>
-                    <td colspan="2" ><button onclick='setDecimal(this,true)'style='width:106px' id='dec'>0</button></td>
-                    <td><button onclick='setDecimal(this,true)' id='dec'>.</button></td>
-                </tr>
-            </table>
-        </div>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="calculator-buttons">
+        <div class="display" id="display"></div>
+        <span id="limparDisplay"
+          ><i class="fas fa-chevron-circle-right"></i
+        ></span>
+        <span id="limparCalculo"><i class="far fa-copyright"></i></span>
+        <span id="backspace"><i class="fas fa-arrow-left"></i></span>
+        <span id="operadorDividir"><i class="fas fa-divide"></i></span>
+        <span id="tecla7">7</span>
+        <span id="tecla8">8</span>
+        <span id="tecla9">9</span>
+        <span id="operadorMultiplicar"><i class="fas fa-times"></i></span>
+        <span id="tecla4">4</span>
+        <span id="tecla5">5</span>
+        <span id="tecla6">6</span>
+        <span id="operadorSubtrair"><i class="fas fa-minus"></i></span>
+        <span id="tecla1">1</span>
+        <span id="tecla2">2</span>
+        <span id="tecla3">3</span>
+        <span id="operadorAdicionar"><i class="fas fa-plus"></i></span>
+        <span id="inverter"><i class="fas fa-arrows-alt-h"></i></span>
+        <span id="tecla0">0</span>
+        <span id="decimal">,</span>
+        <span id="igual"><i class="fas fa-equals"></i></span>
+      </div>
     </div>
-    <!-- JavaScript-->
-    <script src="https://kit.fontawesome.com/16544f2866.js" crossorigin="anonymous"></script>
+    <div class="cube">
+      <div class="top"></div>
+      <div>
+        <span style="--i: 0">
+          <h3>Calculadora</h3>
+          <h3>Calculadora</h3>
+        </span>
+        <span style="--i: 1">
+            <a href="#" ><i class="fab fa-github"></i></a>
+            <a href="https://github.com/GabDevjs/calculadora.js" target="_blank" class="hover"><i class="fab fa-github"></i></a>
+        </span>
+        <span style="--i: 2">
+          <h3>Calculadora</h3>
+          <h3>Calculadora</h3>
+        </span>
+        <span style="--i: 3">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/GabDevjs/calculadora.js" target="_blank" class="hover"><i class="fab fa-github"></i></a>
+        </span>
+      </div>
+    </div>
+    <!-- {JavaScript} -->
+    <script type="text/javascript" src="assets/js/vanila-tilt.js"></script>
+    <script type="text/javascript">
+      VanillaTilt.init(document.querySelector(".calculator"), {
+        max: 10,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.2,
+      });
+    </script>
     <script src="assets/js/index.js"></script>
-</body>
+  </body>
 </html>

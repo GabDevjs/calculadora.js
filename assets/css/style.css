@@ -1,64 +1,196 @@
-* {
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-h2 {
-    text-align: center;
+body{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    min-height: 100vh;
+    background:  #1B2631;
+    font-family: 'Prompt', sans-serif;
 }
 
-.conteiner {
-    background-color: #34495e;
-    height: 100vh;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+body::before{
+    content: '';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(#2ECC71,#4A235A);
+    clip-path: circle(22% at 30% 20%);
 }
 
-.calculadora {
-    position: absolute;
-    background-color: #191919;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius: 10px;
-    padding: 15px 20px;
-    box-shadow: 8px 8px 2px black;
+
+.calculator {
+    position:relative;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 10;
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    border-left: 1px solid rgba(255, 255, 255, 0.02);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
 }
 
-button {
-    width: 50px;
-    height: 50px;
-    font-size: 25px;
-    cursor: pointer;
-    background-color: rgb(31, 31, 31);
-    border: 2px solid #3498db;
-    border-radius: 10px;
-    color: #fff;
-    margin: 3px;
+.calculator .calculator-buttons{
+    position: relative;
+    display: grid;
 }
 
-button:hover {
-    background-color: black;
-    border-color: #2ecc71;
-    font-size: 27px;
-    transition: 0.2s;
-}
-
-.btn-blue:hover {
-    background-color: #3498db;
-    border-color: #3498db;
-    transition: 0.3s;
-}
-
-#field1 {
-    background-color: #f5f5dc;
-    width: 213px;
-    height: 30px;
-    margin: 5px;
-    margin-bottom: 7px;
-    font-size: 25px;
-    color: #2f4f4f;
+.calculator .calculator-buttons .display{
+    grid-column: span 4;
+    height: 140px;
+    width: 300px;
     text-align: right;
-    padding: 5px;
-    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 30px;
+    background: transparent;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.calculator .calculator-buttons span{
+    display: grid;
+    place-items: center;
+    width: 75px;
+    height: 75px;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.5s
+}
+
+.calculator .calculator-buttons span:hover{
+    transition: 0s;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.calculator .calculator-buttons span:active{
+    background: #14ff47;
+    color: #192f00;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+.calculator .calculator-buttons .clear{
+    grid-column: span 2;
+    width: 150px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.calculator .calculator-buttons .plus{
+    grid-column: span 2;
+    height: 150px;
+}
+
+
+/* Cube */
+.cube{
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg);
+    animation: animate 10s linear infinite;
+    z-index: 1;
+}
+
+@keyframes animate {
+    0%{
+        transform: rotateX(-30deg) rotateY(0deg)
+    }    
+    100%{
+        transform: rotateX(-30deg) rotateY(360deg)
+    }
+}
+
+.cube div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.cube div span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #151515;
+    transform: rotateY(calc(90deg * var(--i)))  translateZ(100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.cube div span h3{
+    position: absolute;
+    color: #fff;
+    font-size: 25px;
+    transform: translateZ(25px);
+}
+
+.cube div span h3:nth-child(1),
+.cube div span a:nth-child(1){
+    transform: translateZ(0) translateY(20px);
+    color: rgba(0, 0, 0, 0.5);
+    filter: blur(5px);
+}
+
+.cube div span a{
+    position: absolute;
+    color: #fff;
+    font-size: 80px;
+    transform: translateZ(10px);
+    cursor: pointer;
+}
+
+.cube div span .hover:hover{
+    color: #14ff47;
+}
+
+.top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: #222;
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.top::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: #000;
+    transform: translateZ(-400px);
+    filter: blur(20px);
+    box-shadow: 0 0 120px rgba(0, 0, 0, 0.2),
+    0 0 200px rgba(0, 0, 0, 0.4),
+    0 0 300px rgba(0, 0, 0, 0.6),
+    0 0 400px rgba(0, 0, 0, 0.8),
+    0 0 500px rgba(0, 0, 0, 1)
 }

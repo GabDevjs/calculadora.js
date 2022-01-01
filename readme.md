@@ -1,8 +1,8 @@
-# JavaScript calculator
+# calculator Js
  
   ## about
 
-  In this project I made with javascript a very simple but functional calculator.
+ this is a simple pure javascript project that uses functional programming to make a simple but very well built calculator
 
 
   <div align="center">
